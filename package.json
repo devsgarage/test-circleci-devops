@@ -1,0 +1,51 @@
+{
+  "name": "js-devops-demo",
+  "version": "1.0.0",
+  "description": "A demo project for doing a CI/CD pipeline for a Javascript project",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npm-run-all transpile run",
+    "run": "node dist/index.js",
+    "test": "mocha --require @babel/register tests/**/*.spec.js",
+    "transpile": "babel ./src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canyon-trail/js-devops-demo.git"
+  },
+  "author": "Floyd May & Ryan Overton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canyon-trail/js-devops-demo/issues"
+  },
+  "homepage": "https://github.com/canyon-trail/js-devops-demo#readme",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
+    "babel-plugin-root-import": "^6.4.1",
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "mocha": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "supertest": "^4.0.2"
+  },
+  "babel": {
+    "plugins": [
+      "babel-plugin-root-import"
+    ],
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": 2,
+          "targets": {
+            "node": "10"
+          }
+        }
+      ]
+    ]
+  }
+}
